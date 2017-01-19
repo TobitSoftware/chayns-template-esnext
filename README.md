@@ -1,0 +1,1 @@
+# chayns-template-es6
