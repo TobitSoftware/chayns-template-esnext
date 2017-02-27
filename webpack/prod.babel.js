@@ -12,31 +12,35 @@ export default {
         ]
     },
     resolve: {
-        extensions: ['', '.js']
+        extensions: ['.js']
     },
     output: {
         path: path.resolve(ROOT_PATH, 'build'),
         filename: "[name].min.js"
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
-                loader: 'babel',
+                use: [{
+                    loader: 'webpack-replace',
+                    options: {
+                        search: '##server_url##',
+                        replace: SERVER_URL
+                    }
+                },{
+                    loader: 'babel-loader'
+                }],
                 exclude: /node_modules/
             },
             {
-                test: /\.scss$/,
-                loader: 'style!css!sass',
+                test: /\.(scss|css)$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ],
                 exclude: /node_modules/
-            },
-            {
-                test: /\.js$/,
-                loader: 'webpack-replace',
-                query: {
-                    search: '##server_url##',
-                    replace: SERVER_URL
-                }
             }
         ]
     },
@@ -48,12 +52,14 @@ export default {
             },
             __DEV__: false
         }),
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true
+        }),
         new HtmlWebpackPlugin({
-            template: 'index.template.html',
+            template: 'src/index.public.html',
             filename: 'index.html',
-            hash: true,
-            inject: true
+            inject: true,
+            hash: true
         })
     ]
 };
