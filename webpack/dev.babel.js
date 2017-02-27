@@ -13,7 +13,7 @@ export default {
         path.resolve(ROOT_PATH, 'src/index')
     ],
     resolve: {
-        extensions: ['', '.js']
+        extensions: ['.js']
     },
     output: {
         path: path.resolve(ROOT_PATH, 'build'),
@@ -25,30 +25,43 @@ export default {
         https: false
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
-                loader: 'babel',
+                use:[{
+                    loader: 'babel-loader'
+                },{
+                    loader: 'webpack-replace',
+                    options: {
+                        search: '##server_url##',
+                        replace: SERVER_URL
+                    }
+                }],
                 exclude: /node_modules/
             },
             {
-                test: /\.scss$/,
-                loader: 'style!css!sass',
+                test: /\.(scss|css)$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ],
                 exclude: /node_modules/
-            },
-            {
-                test: /\.js$/,
-                loader: 'webpack-replace',
-                query: {
-                    search: '##server_url##',
-                    replace: SERVER_URL
-                }
             }
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify("development")
+            },
+            __DEV__: true
+        }),
+        new webpack.LoaderOptionsPlugin({
+            debug: true
+        }),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
         new HtmlWebpackPlugin({
             template: 'index.html',
             inject:   true,
