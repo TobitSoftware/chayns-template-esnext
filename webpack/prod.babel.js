@@ -56,7 +56,7 @@ export default {
             sourceMap: true
         }),
         new HtmlWebpackPlugin({
-            template: 'src/index.public.html',
+            template: 'index.html',
             filename: 'index.html',
             inject: true,
             hash: true
