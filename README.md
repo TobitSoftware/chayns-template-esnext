@@ -4,7 +4,7 @@ This template will show you the basic project structure for building your own cu
 
 ###Requirements
 
-* A Chayns Site
+* [A free Chayns Site](https://chayns.tobit.software/)
 * Node.js
 
 ## Getting started
