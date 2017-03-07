@@ -37,10 +37,16 @@ npm run release
 To test your site you need a Chayns site and rights to add content. To add your site to Chayns we need to do some changes:
 
 In webpack/dev.babel.js:
-* ```webpack-dev-server/client?http://0.0.0.0:8080``` 0.0.0.0 to your ip like 192.168.178.XXX
+```
+webpack-dev-server/client?http://0.0.0.0:8080
+``` 
+0.0.0.0 to your ip like 192.168.178.XXX
 
 In package.json:
-* ```"start": "webpack-dev-server --colors --progress --config ./webpack/dev.babel.js --host 0.0.0.0 --port 8080",``` here too
+```
+"start": "webpack-dev-server --colors --progress --config ./webpack/dev.babel.js --host 0.0.0.0 --port 8080",
+```
+here too
 
 When you have changed this settings you need to go to your Chayns site. There you need to follow these steps:
 
