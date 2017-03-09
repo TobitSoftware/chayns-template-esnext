@@ -1,3 +1,7 @@
+
+//Create stylesheets for each script in the same folder with the same naming (if necessary) and import it.
+import "./index.css";
+
 /**
  * chayns ready promise
  */
@@ -20,14 +24,12 @@ const init = function () {
 
     if(chayns.env.user.name){
 
-
         /**
          * You can get the basic information about the logged in user by using the chayns variables "chayns.env.user"
          * @type {string}
          */
         document.querySelector('#headline').innerHTML=`Hello ${chayns.env.user.name}!`;
     }
-
 
     /**
      * The webpack files use the webpack-replace loader for replacing the "server_url"
