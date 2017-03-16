@@ -59,7 +59,7 @@ export default class admin {
         name.classList.add("listUserName");
 
         let image = document.createElement("div");
-        image.style.backgroundImage = "url('http://graph.facebook.com/" + _user.facebookId + "/picture?type=square')";
+        image.style.backgroundImage = `url('https://sub60.tobit.com/u/${_user.personId}?size=40')`;
         image.classList.add("listUserImage");
 
         container.appendChild(image);
