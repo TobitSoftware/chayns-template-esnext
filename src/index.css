@@ -4,3 +4,7 @@
 * Then import the stylesheet in the specific script (example in the index.js)
 *
 */
+
+.hidden {
+    display: none;
+}

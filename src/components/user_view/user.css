@@ -1,0 +1,15 @@
+.listUserItem {
+    display: flex;
+    margin-bottom: 10px;
+    height: 40px;
+}
+
+.listUserName {
+    line-height: 40px;
+}
+
+.listUserImage {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
