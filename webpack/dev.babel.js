@@ -67,6 +67,6 @@ export default {
             inject:   true,
             hash: true,
             filename: 'index.html'
-        })
+        });
     ]
 };

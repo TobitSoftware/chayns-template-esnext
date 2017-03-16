@@ -10,7 +10,7 @@ This template will show you the basic project structure for building your own cu
 ## Getting started
 
 The template is based on several npm-Packages, which have to be installed first. If you haven´t installed `node.js` already, please install it now.
-For installing the dependecies you have to open your `node.js` terminal, change the path to the cloned project and run:
+For installing the dependencies you have to open your `node.js` terminal, change the path to the cloned project and run:
 
 ```
 npm i
