@@ -39,6 +39,6 @@ To add this tapp to your Chayns site you need to follow these steps:
 1. Go to configuration -> Tapps
 2. Click ```Add Tapp```
 3. Use external content
-4. Fill out the name and in the field data source put your ip like this: ```http://192.168.178.XXX/index.html```
+4. Fill out the name and in the field data source set an url like this: ```http://localhost:8080/index.html```
 5. Click ```add```
 6. If your website isn't running make sure you have entered ```npm start```
