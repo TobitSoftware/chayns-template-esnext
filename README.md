@@ -1,3 +1,5 @@
+[![license](https://img.shields.io/github/license/TobitSoftware/chayns-template-es6.svg)]() [![GitHub pull requests](https://img.shields.io/github/issues-pr/TobitSoftware/chayns-template-es6.svg)]() [![](https://img.shields.io/github/issues-pr-closed-raw/TobitSoftware/chayns-template-es6.svg)]()
+
 # chayns+ES2015 Template
 
 This template will show you the basic project structure for building your own custom Tapps with `ES2015` and the `chayns`-Framework.
