@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Add Meta-Tags for scaling etc.-->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1, maximum-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="utf-8">
+
+    <title>Tapp</title>
+
+    <!--Load the chayns styles-->
+    <link rel="stylesheet" href="//chayns-res.tobit.com/API/V3.1/css/chayns.min.css">
+</head>
+<body>
+<div class="tapp">
+    <div class="tapp__intro">
+        <h1 class="headline">chayns user selector</h1>
+        <p>This tapp lets chayns® Managers switch to an 'admin mode' which displays secured content and enables to
+            select users via the chayns® person finder. Selected users will be added to a list that can be seen in both
+            admin and user modes.This is an example of a ModeSwitch implementation and shows you how to secure content
+            by UAC groups.</p>
+    </div>
+
+    <div class="tapp__content">
+        <input id="personFinder" class="input admin-only" type="text" style="width:100%;" finder="person" placeholder="Search or users">
+
+        <div class="accordion accordion--open">
+            <div class="accordion__head">User List</div>
+            <div class="accordion__body">
+                <div id="usersList" class="accordion__content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Load the js chayns API-->
+<script src="//chayns-res.tobit.com/API/V3.1/js/chayns.min.js"></script>
+</body>
+</html>

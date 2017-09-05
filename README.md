@@ -1,46 +1,33 @@
-[![license](https://img.shields.io/github/license/TobitSoftware/chayns-template-es6.svg)]() [![GitHub pull requests](https://img.shields.io/github/issues-pr/TobitSoftware/chayns-template-es6.svg)]() [![](https://img.shields.io/github/issues-pr-closed-raw/TobitSoftware/chayns-template-es6.svg)]()
+[![license](https://img.shields.io/github/license/TobitSoftware/chayns-template-esnext.svg)]() [![GitHub pull requests](https://img.shields.io/github/issues-pr/TobitSoftware/chayns-template-esnext.svg)]() [![](https://img.shields.io/github/issues-pr-closed-raw/TobitSoftware/chayns-template-esnext.svg)]()
 
-# chayns+ES2015 Template
+chayns with ES.NEXT - Template
+===================
+This template contains a tapp using the chayns API.
+If you're a chayns® manager you can switch to the specific mode and a PersonFinder will get visible.  
+Using this PersonFinder you can select users which then will be appended to the user list.
 
-This template will show you the basic project structure for building your own custom Tapps with `ES2015` and the `chayns`-Framework.
+This template will help you getting started with building Tapps for your chayns®-Website with ES.Next. First of all you have to make sure, that you have the latest version of [node.js][1] installed.
 
-### Requirements
+Development
+-------------
+1. Install all project dependencies with  `npm i`
+2. Start your webpack-dev-server for debugging your project with `npm start`
+    * The webpack-dev-server is now running on your localhost on the port 8080. If the port is not available you can change it in the dev.babel.js in the webpack folder.
 
-* [A free Chayns Site](https://chayns.tobit.software/)
-* Node.js
+3. Implement the example Tapp to your chayns® site .
+    1. Go to configuration -> Tapps
+    2. Click `Add Tapp`
+    3. Use external content
+    4. Give the Tapp a name and type in the following URL : `http://localhost:8080`
+    5. Click `add`
+4. Start development.
 
-## Getting started
+Building
+---------
+You can build this project via `npm run build`.
 
-The template is based on several npm-Packages, which have to be installed first. If you haven´t installed `node.js` already, please install it now.
-For installing the dependencies you have to open your `node.js` terminal, change the path to the cloned project and run:
+You can also build this project with sourceMaps for testing via `npm run build:qa`.
 
-```
-npm i
-```
 
-For setting up the recommended folder structure you just have to run:
-
-```
-npm run setup
-```
-
-This project uses `webpack` and `Babel` for building and debugging. You can start the `webpack-dev-server` with the following statement:
-
-```
-npm start
-```
-
-For creating an production build execute this code:
-
-```
-npm run release
-```
-
-To add this tapp to your Chayns site you need to follow these steps:
-
-1. Go to configuration -> Tapps
-2. Click ```Add Tapp```
-3. Use external content
-4. Fill out the name and in the field data source set an url like this: ```http://localhost:8080/index.html```
-5. Click ```add```
-6. If your website isn't running make sure you have entered ```npm start```
+ [1]: https://nodejs.org/en/
+ [2]: https://github.com/TobitSoftware/chayns-guides/blob/master/TobitReactJsxStyleGuide.md

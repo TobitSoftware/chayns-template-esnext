@@ -1,72 +1,36 @@
+import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import path from 'path';
+import getBaseConfig from './base-config';
 
 const ROOT_PATH = path.resolve('./');
-const SERVER_URL = 'DEV';
-
 
 export default {
-    entry: [
-        'webpack/hot/dev-server',
-        'webpack-dev-server/client?http://0.0.0.0:8080',
-        path.resolve(ROOT_PATH, 'src/index')
-    ],
-    resolve: {
-        extensions: ['.js']
-    },
-    output: {
-        path: path.resolve(ROOT_PATH, 'build'),
-        filename: 'app.bundle.js'
-    },
-    devtool: 'cheap-eval-source-map',
+    ...getBaseConfig(true),
     devServer: {
+        host: '0.0.0.0',
+        port: 8080,
         historyApiFallback: true,
-        https: false
+        compress: true,
+        hot: true,
+        disableHostCheck: true
     },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                use:[{
-                    loader: 'babel-loader'
-                },{
-                    loader: 'webpack-replace',
-                    options: {
-                        search: '##server_url##',
-                        replace: SERVER_URL
-                    }
-                }],
-                exclude: /node_modules/
-            },
-            {
-                test: /\.(scss|css)$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ],
-                exclude: /node_modules/
-            }
-        ]
-    },
+    devtool: 'inline-source-map',
     plugins: [
-        new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify("development")
-            },
-            __DEV__: true
+        new HtmlWebpackPlugin({
+            template: path.resolve(ROOT_PATH, 'src/index.html')
         }),
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.LoaderOptionsPlugin({
             debug: true
         }),
-        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new HtmlWebpackPlugin({
-            template: 'index.html',
-            inject:   true,
-            hash: true,
-            filename: 'index.html'
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('development'),
+            __DEV__: true,
+            __QA__: false,
+            __LIVE__: false,
         })
     ]
 };

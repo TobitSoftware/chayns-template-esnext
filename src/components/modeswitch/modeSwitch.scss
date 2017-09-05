@@ -1,0 +1,5 @@
+body:not(.admin-view) {
+  .admin-only {
+    display: none;
+  }
+}
