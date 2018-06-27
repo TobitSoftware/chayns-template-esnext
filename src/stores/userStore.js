@@ -2,7 +2,7 @@ let users = [];
 const subscribers = [];
 
 const notifySubscribers = () => {
-    for (let i = 0, l = subscribers.length; i < l; i++) {
+    for (let i = 0, l = subscribers.length; i < l; i += 1) {
         subscribers[i]();
     }
 };
@@ -10,7 +10,7 @@ const notifySubscribers = () => {
 
 const getUsers = () => [...users];
 
-const addUser = user => {
+const addUser = (user) => {
     if (users.find(u => u.userId === user.userId)) {
         return false;
     }
@@ -20,7 +20,7 @@ const addUser = user => {
     return true;
 };
 
-const removeUser = userId => {
+const removeUser = (userId) => {
     users = users.filter(u => u.userId !== userId);
     notifySubscribers();
 };
@@ -34,4 +34,4 @@ export default {
     addUser,
     removeUser,
     subscribe
-}
+};

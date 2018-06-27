@@ -1,15 +1,17 @@
 import webpack from 'webpack';
-import webpackMerge from 'webpack-merge';
-import prodConfig from './prod.babel';
+import merge from 'webpack-merge';
+import common from './common';
 
-
-export default webpackMerge(
-    prodConfig,
+export default merge(
+    common,
     {
+        mode: 'production',
         devtool: 'inline-source-map',
         plugins: [
             new webpack.DefinePlugin({
-                'process.env.NODE_ENV': JSON.stringify('staging')
+                __DEV__: false,
+                __STAGING__: false,
+                __PROD__: true,
             }),
         ]
     }
